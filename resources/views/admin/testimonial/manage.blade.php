@@ -87,5 +87,4 @@
             </div>
         </div>
     </div>
-    <script>$('#datatable-buttons').DataTable();</script>
 @endsection

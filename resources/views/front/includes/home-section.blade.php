@@ -5,8 +5,8 @@
                 <div class="col-sm-12">
                     <div class="home-inner">
                         <div class="center-align home-content">
-                            <h1 class="home-title">HI! I'm <span>John Doe</span></h1>
-                            <h2 class="home-subtitle">UX/UI Designer from Dhaka, Bangladesh</h2>
+                            <h1 class="home-title">HI! I'm <span>{{$administrator->name}}</span></h1>
+                            <h2 class="home-subtitle">{{$administrator->position}} from {{$administrator->city}}, {{$administrator->country}}</h2>
                             <a href="#contact" class="hire-me-btn btn waves-effect waves-light btn-large brand-bg white-text regular-text">Hire Me <i class="mdi-content-send left"></i>
                             </a>
                         </div>

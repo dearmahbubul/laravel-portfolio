@@ -2,7 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Administrator;
+use App\BlogPost;
+use App\BlogPostCategory;
+use App\Education;
+use App\Experience;
+use App\PortfolioCategory;
+use App\Portfolio;
 use App\Skill;
+use App\Team;
 use App\Testimonial;
 use Illuminate\Http\Request;
 
@@ -17,7 +25,14 @@ class FrontController extends Controller
     {
         $skills = Skill::where('status',1)->get();
         $testimonials = Testimonial::where('status',1)->get();
-        return view('front.master',compact('skills','testimonials'));
+        $experiences = Experience::where('status',1)->get();
+        $educations = Education::where('status',1)->orderby('id','desc')->get();
+        $teams = Team::where('status',1)->orderby('id','asc')->get();
+        $portfolio_categories = PortfolioCategory::where('status',1)->orderby('id','asc')->get();
+        $portfolios = Portfolio::where('status',1)->orderby('id','desc')->get();
+        $blogPosts = BlogPost::where('status',1)->orderby('id','desc')->get();
+        $administrator = Administrator::where('status',1)->orderby('id','desc')->limit(1)->first();
+        return view('front.master',compact('skills','testimonials','experiences','educations','administrator','teams','portfolio_categories','portfolios','blogPosts'));
     }
 
     /**

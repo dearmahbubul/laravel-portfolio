@@ -12,7 +12,7 @@ mahbubulsoft@gmail.com--}}
                             <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('/front')}}/images/logo.png" alt="">
                             </a>
                             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                            <ul class="right static-menu">
+                            {{--<ul class="right static-menu">
                                 <li class="search-form-li">
                                     <a id="initSearchIcon" class=""><i class="mdi-action-search"></i> </a>
                                     <div class="search-form-wrap hide">
@@ -28,7 +28,7 @@ mahbubulsoft@gmail.com--}}
                                         <i class="mdi-navigation-more-vert right"></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul>--}}
                             <ul class="inline-menu side-nav" id="mobile-demo">
 
                                 <!-- Mini Profile // only visible in Tab and Mobile -->
@@ -37,8 +37,8 @@ mahbubulsoft@gmail.com--}}
                                         <div class="pp-container">
                                             <img src="{{asset('/front')}}/images/person.png" alt="">
                                         </div>
-                                        <h3>John Doe</h3>
-                                        <h5>Creative UI/UX Expert</h5>
+                                        <h3>{{$administrator->name}}</h3>
+                                        <h5>{{$administrator->position}}</h5>
                                     </div>
                                 </li><!-- mini profile end-->
 
@@ -58,7 +58,7 @@ mahbubulsoft@gmail.com--}}
                                 <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>Contact</a>
                                 </li>
                             </ul>
-                            <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
+                            {{--<ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
                                 <li>Home</li>
                                 <li><a href="blog.html">All Blog</a>
                                 </li>
@@ -66,7 +66,7 @@ mahbubulsoft@gmail.com--}}
                                 </li>
                                 <li><a href="single.html">Single Blog</a>
                                 </li>
-                            </ul>
+                            </ul>--}}
 
                         </div>
                     </nav>

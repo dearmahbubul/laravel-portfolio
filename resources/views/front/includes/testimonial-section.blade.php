@@ -7,15 +7,17 @@
                         <div class="clearfix section-head testimonial-text">
                             <div class="col-sm-12">
                                 <h2 class="title">testimonial</h2>
-                                <p class="regular-text">Aliquam lobortis. Maecenas vestibulum mollis diam. Pellentesque auctor neque nec urna. Nulla sit amet est. Aenean posuere tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.</p>
+                                <p class="regular-text">{{$administrator->testimonial_content}}</p>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="overflow-hidden">
                                 <div class="row">
                                     <div id="testimonialSlider" class="clearfix card-element-wrapper">
+
+                                        @php($delay=0)
                                         @foreach($testimonials as $testimonial)
-                                        <div class="col-sm-6 single-card-box wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration=".7s">
+                                        <div class="col-sm-6 single-card-box wow fadeInUpSmall" data-wow-delay="{{$delay=$delay+.2}}s" data-wow-duration=".7s">
                                             <div class="card">
                                                 <div class="card-image waves-effect waves-block waves-light">
                                                     <div class="card-img-wrap">

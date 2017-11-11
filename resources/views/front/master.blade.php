@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MaterialX - Material Design Personal Template</title>
+    <title>Portfolio - Mahbubul Alam</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
@@ -50,13 +50,13 @@
 <body>
 
 <!-- Preloader -->
-<div id="preloader">
+{{--<div id="preloader">
     <div class="loader">
         <svg class="circle-loader" height="50" width="50">
             <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10" />
         </svg>
     </div>
-</div><!--preloader end-->
+</div><!--preloader end-->--}}
 
 <!-- Main Container -->
 <main id="app" class="main-section">
@@ -139,6 +139,13 @@
 <script src="{{asset('/front')}}/assets/libs/sweetalert/sweet-alert.min.js"></script>
 <script src="{{asset('/front')}}/assets/js/common.js"></script>
 <script src="{{asset('/front')}}/assets/js/main.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.alert').delay(2000).slideUp(1500,function () {
+            $(this).alert('close');
+        });
+    });
+</script>
 </body>
 
 </html>

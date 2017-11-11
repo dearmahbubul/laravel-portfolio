@@ -92,7 +92,6 @@ class TestimonialController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *{!! Form::open(['url' => '/dashboard/testimonial/update/'.$testimonial->unique_id,'method'=>'PATCH','files' => true,'class'=>'form-horizontal form-label-left']) !!}
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -6,7 +6,7 @@
                     <div class="col-sm-12 col-md-3">
                         <div class="skill-left">
                             <h2 class="title">Skills</h2>
-                            <p class="regular-text">Man behind the gun, any sophisticated weapons. Human remains that taking the role. We are experienced in utilizing all resources.</p>
+                            <p class="regular-text">{{$administrator->skill_content}}</p>
                         </div>
                     </div>
 

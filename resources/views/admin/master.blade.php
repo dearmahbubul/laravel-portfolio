@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('/admin')}}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Mahbubul Alam</a>
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">{{ Auth::user()->name }}</a>
                 </div>
                 <div class="clearfix"></div>
             </footer>
@@ -80,6 +80,8 @@
 <script src="{{asset('/admin')}}/vendors/Flot/jquery.flot.time.js"></script>
 <script src="{{asset('/admin')}}/vendors/Flot/jquery.flot.stack.js"></script>
 <script src="{{asset('/admin')}}/vendors/Flot/jquery.flot.resize.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <!-- Flot plugins -->
 <script src="{{asset('/admin')}}/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
 <script src="{{asset('/admin')}}/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
