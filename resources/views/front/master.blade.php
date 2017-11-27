@@ -12,7 +12,8 @@
     <title>Portfolio - Mahbubul Alam</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('/front')}}/{{asset('/front')}}/{{asset('/front')}}/images/favicon.png" >
 
@@ -118,6 +119,7 @@
     @include('front.includes.footer')
     <!-- #footer end -->
 
+
 </main>
 <!-- Main Container end-->
 
@@ -145,6 +147,57 @@
             $(this).alert('close');
         });
     });
+</script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $('#mainContactForm').on('submit',function (e) {
+        e.preventDefault();
+        var data = $(this).serialize();
+        var url = $(this).attr('action');
+        $.ajax({
+            type:'post',
+            url:url,
+            data:data,
+            dataTy:'json',
+            success:function (data) {
+                $('#mainContactForm').trigger('reset');
+                $('#successMessage').text(data);
+            },
+            error:function (errorData) {
+                var error = errorData.responseJSON.message;
+                var nameErrors = error['name'];
+                var emailErrors = error['email'];
+                var subjectErrors = error['subject'];
+                var messageErrors = error['message'];
+                for(var i in nameErrors)
+                {
+                    $nameError = nameErrors[i];
+                    $('#nameErrorMsg').append($nameError);
+                }
+                for(var i in emailErrors)
+                {
+                    $emailError = emailErrors[i];
+                    $('#emailErrorMsg').append($emailError);
+                }
+                for(var i in subjectErrors)
+                {
+                    $subjectError = subjectErrors[i];
+                    $('#subjectErrorMsg').append($subjectError);
+                }
+                for(var i in messageErrors)
+                {
+                    $messageError = messageErrors[i];
+                    $('#messageErrorMsg').append($messageError);
+                }
+
+            }
+        });
+    });
+
 </script>
 </body>
 

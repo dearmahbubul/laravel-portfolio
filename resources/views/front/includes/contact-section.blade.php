@@ -31,42 +31,36 @@
                             <!-- Contact Form start -->
                             <div class="col-sm-5">
                                 <div class="clearfix card-panel grey lighten-5 cform-wrapper">
+                                    <p style="color:green;margin-bottom: 8px;" id="successMessage"></p>
                                     {!! Form::open(['url' => '/front-contact/store','method'=>'POST','id'=>'mainContactForm']) !!}
 
                                         <div class="input-field">
                                             {!! Form::text('name',null,['class'=>'input-box','id'=>'name','required'=>'required']) !!}
-                                            @if ($errors->has('name'))
-                                                <span class="error">
-                                                    <strong style="color: red;">{{ $errors->first('name') }}</strong>
+                                            <span class="error">
+                                                    <strong style="color: red;" id="nameErrorMsg"></strong>
                                                 </span>
-                                            @endif
                                             {!! Form::label('name','Name *',['class'=>'input-label']) !!}
                                         </div>
                                         <div class="input-field">
                                             {!! Form::email('email',null,['class'=>'input-box','id'=>'email','required'=>'required']) !!}
-                                            @if ($errors->has('email'))
                                                 <span class="error">
-                                                    <strong style="color: red;">{{ $errors->first('email') }}</strong>
+                                                    <strong style="color: red;" id="emailErrorMsg"></strong>
                                                 </span>
-                                            @endif
                                             {!! Form::label('email','Email *',['class'=>'input-label']) !!}
                                         </div>
                                         <div class="input-field">
                                             {!! Form::text('subject',null,['class'=>'input-box','id'=>'subject','required'=>'required']) !!}
-                                            @if ($errors->has('subject'))
-                                                <span class="error">
-                                                    <strong style="color: red;">{{ $errors->first('subject') }}</strong>
+                                            <span class="error">
+                                                    <strong style="color: red;" id="subjectErrorMsg"></strong>
                                                 </span>
-                                            @endif
                                             {!! Form::label('subject','Subject',['class'=>'input-label']) !!}
                                         </div>
                                         <div class="input-field textarea-input">
-                                            {!! Form::textarea('message',null,['style'=>'height:18px','class'=>'materialize-textarea','id'=>'message','required'=>'required']) !!}
-                                            @if ($errors->has('subject'))
-                                                <span class="error">
-                                                    <strong style="color: red;">{{ $errors->first('subject') }}</strong>
-                                                </span>
-                                            @endif
+                                            {!! Form::textarea('message',null,['style'=>'height:14px','class'=>'materialize-textarea','id'=>'message','required'=>'required']) !!}
+                                            <span class="error">
+                                                    <strong style="color: red;" id="messageErrorMsg"></strong>
+                                            </span>
+
                                             {!! Form::label('message','Message *',['class'=>'input-label']) !!}
 
                                         </div>
@@ -81,6 +75,7 @@
                                         </div>
                                     {!! Form::close() !!}
                                 </div>
+
                             </div> <!-- ./contact form end -->
                         </div>
                     </div>

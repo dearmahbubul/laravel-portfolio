@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -38,27 +40,44 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name'=>'required|max:150',
-            'email'=>'required|email',
-            'subject'=>'max:400',
-            'message'=>'required',
-        ]);
-        $unique_id = time().md5(rand(100000,10000000));
-        DB::table('contacts')->insert([
-            'unique_id'=>$unique_id,
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'subject'=>$request->subject,
-            'message'=>$request->message,
-            'status'=>1
-        ]);
-        /*
-         * Store data in one line
-         * contact::create($request->all());
-         * session()->flash('message','Data inserted successfully');
-         * */
-        return redirect('/')->with('message','Message send successfully!');
+        if($request->ajax())
+        {
+            $validator = Validator::make($request->all(),[
+                'name'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
+                'email'=>'required|email|max:255',
+                'subject'=>'string|max:255',
+                'message'=>'required|string',
+
+            ]);
+            if($validator->fails())
+            {
+                return response()->json(
+                    [
+                        'error'=>true,
+                        'message'=>$validator->messages(),
+                        'code'=>400
+                    ],400);
+            }
+
+
+            $unique_id = time().md5(rand(100000,10000000));
+            DB::table('contacts')->insert([
+                'unique_id'=>$unique_id,
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'subject'=>$request->subject,
+                'message'=>$request->message,
+                'status'=>1
+            ]);
+            /*
+             * Store data in one line
+             * contact::create($request->all());
+             * session()->flash('message','Data inserted successfully');
+             * */
+           // return redirect('/')->with('message','Message send successfully!');
+            return response("Message send successfully, Thank you.");
+        }
+
 
     }
 
